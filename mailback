@@ -1,0 +1,64 @@
+#!/usr/bin/python2
+
+
+"""
+To use, create a file ~/.mailback with settings:
+
+    [mailback]
+    myself = Your Name <your.address@example.com>
+    sendmail = /usr/sbin/sendmail-or-equivalent -x with -y arguments
+
+Then pipe in the body and use the arguments as the subject:
+
+    cat mydata | mailback This is the data
+"""
+
+
+import os
+import shlex
+import subprocess
+import sys
+
+from ConfigParser import SafeConfigParser
+from email.message import Message
+
+
+class Emailer:
+
+    def __init__(self):
+        path = os.path.join(os.environ['HOME'], ".mailback")
+        if not os.path.exists(path):
+            raise Exception("Missing config file: %r" % path)
+        self.load_config_from(path)
+
+    def load_config_from(self, filepath):
+        parser = SafeConfigParser()
+        parser.read(filepath)
+        self.myself = parser.get("mailback", "myself")
+        self.sendmail = parser.get("mailback", "sendmail")
+
+    def build_message(self, subject=None, body=None):
+        email = Message()
+        email.add_header("From", self.myself)
+        email.add_header("To", self.myself)
+        if subject is not None:
+            email.add_header("Subject", subject)
+        if body is not None:
+            email.set_payload(body)
+        return email
+
+    def send_message(self, email):
+        args = shlex.split(self.sendmail)
+        args.append(self.myself)
+        sendmail = subprocess.Popen(args, stdin=subprocess.PIPE)
+        sendmail.communicate(email.as_string())
+
+    def main(self):
+        body = sys.stdin.read()
+        subject = " ".join(sys.argv[1:])
+        email = self.build_message(subject=subject, body=body)
+        self.send_message(email)
+
+
+if __name__ == '__main__':
+    Emailer().main()
