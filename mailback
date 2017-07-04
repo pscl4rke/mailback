@@ -21,9 +21,12 @@ import sys
 
 from ConfigParser import SafeConfigParser
 from email.message import Message
+from email.utils import formatdate
 
 
 class Emailer:
+
+    use_local_timezone = True
 
     def __init__(self):
         path = os.path.join(os.environ['HOME'], ".mailback")
@@ -41,6 +44,7 @@ class Emailer:
         email = Message()
         email.add_header("From", self.myself)
         email.add_header("To", self.myself)
+        email.add_header("Date", formatdate(None, self.use_local_timezone))
         if subject is not None:
             email.add_header("Subject", subject)
         if body is not None:
