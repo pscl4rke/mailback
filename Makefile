@@ -6,6 +6,6 @@ dummy:
 
 
 install:
-	install mailback /usr/bin/mailback
+	install -D mailback $(DESTDIR)/usr/bin/mailback
 
 
