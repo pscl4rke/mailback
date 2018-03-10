@@ -1,8 +1,10 @@
-mailback (1.0.1) UNRELEASED; urgency=medium
+mailback (1.0.1) unstable; urgency=medium
 
   * Use GPLv3 as the licence.
+  * Ensure python deps match the hashbangs.
+  * Add a basic manpage.
 
- -- P. S. Clarke <debs@pscl4rke.net>  Sat, 10 Mar 2018 17:37:56 +0000
+ -- P. S. Clarke <debs@pscl4rke.net>  Sat, 10 Mar 2018 17:57:17 +0000
 
 mailback (1.0.0) unstable; urgency=medium
 
