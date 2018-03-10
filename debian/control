@@ -3,14 +3,14 @@ Section: mail
 Priority: optional
 Maintainer: P. S. Clarke <debs@pscl4rke.net>
 Build-Depends: debhelper (>=9)
-Standards-Version: 3.9.6
+Standards-Version: 3.9.7
 Homepage: https://github.com/pscl4rke/mailback
 #Vcs-Git: git://anonscm.debian.org/collab-maint/mailback.git
 #Vcs-Browser: https://anonscm.debian.org/cgit/collab-maint/mailback.git
 
 Package: mailback
 Architecture: all
-Depends: ${misc:Depends}, python2.7
+Depends: ${misc:Depends}, python2
 Description: Takes textual reports and emails them to the sysadmins
  Mailback is ideal for cronjobs and other automated tasks.  It reads
  report text from stdin and formats it into an email.  This is sent
