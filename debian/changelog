@@ -1,3 +1,10 @@
+mailback (1.0.2) unstable; urgency=medium
+
+  * Fix python deps. Again.
+    Because `python2` does not exist, but `python2.7` does.
+
+ -- P. S. Clarke <debs@pscl4rke.net>  Sat, 10 Mar 2018 18:04:24 +0000
+
 mailback (1.0.1) unstable; urgency=medium
 
   * Use GPLv3 as the licence.
