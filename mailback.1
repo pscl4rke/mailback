@@ -1,0 +1,21 @@
+.TH MAILBACK 1 "March 2018" mailback "User Commands"
+.SH NAME
+mailback - takes textual reports and emails them to the sysadmins
+.SH SYNOPSIS
+.B mailback
+Subject Line Here...
+.SH DESCRIPTION
+Mailback reads a report from stdin and sends it to the email address specified in
+~/.mailback.
+The arguments are concatentated to form the message subject.
+.SH CONFIGURATION FILE
+The .mailback file should be put in the user's home directory and look like:
+
+[mailback]
+
+myself = The Recipient <address@example.com>
+
+sendmail = /usr/sbin/sendmail
+
+.SH AUTHOR
+Written and maintained by P. S. Clarke
