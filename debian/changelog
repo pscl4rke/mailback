@@ -1,3 +1,9 @@
+mailback (1.0.1) UNRELEASED; urgency=medium
+
+  * Use GPLv3 as the licence.
+
+ -- P. S. Clarke <debs@pscl4rke.net>  Sat, 10 Mar 2018 17:37:56 +0000
+
 mailback (1.0.0) unstable; urgency=medium
 
   * Initial Release.
