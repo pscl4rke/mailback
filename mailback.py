@@ -28,8 +28,9 @@ class Emailer:
 
     use_local_timezone = True
 
-    def __init__(self):
-        path = os.path.join(os.environ['HOME'], ".mailback")
+    def __init__(self, path=None):
+        if path is None:
+            path = os.path.join(os.environ['HOME'], ".mailback")
         if not os.path.exists(path):
             raise Exception("Missing config file: %r" % path)
         self.load_config_from(path)

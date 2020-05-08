@@ -1,0 +1,7 @@
+
+; Note this is also used by the test suite
+; vim:ft=dosini:
+
+[mailback]
+myself = Your Name <your.address@example.com>
+sendmail = /usr/sbin/sendmail-or-equivalent -x with -y arguments
