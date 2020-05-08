@@ -59,7 +59,11 @@ class Emailer:
 
     def main(self):
         body = sys.stdin.read()
+        if len(body) == 0:
+            body = "(no body text received from pipeline)"
         subject = " ".join(sys.argv[1:])
+        if len(subject) == 0:
+            subject = "(no subject given on command line)"
         email = self.build_message(subject=subject, body=body)
         self.send_message(email)
 
