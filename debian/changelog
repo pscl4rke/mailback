@@ -1,3 +1,10 @@
+mailback (1.0.3) UNRELEASED; urgency=medium
+
+  * Avoid blank subject lines and bodies.
+  * Add a basic test suite.
+
+ -- P. S. Clarke <debs@pscl4rke.net>  Fri, 08 May 2020 12:37:40 +0100
+
 mailback (1.0.2) unstable; urgency=medium
 
   * Fix python deps. Again.
