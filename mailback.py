@@ -1,4 +1,4 @@
-#!/usr/bin/python2.7
+#!/usr/bin/python3
 
 
 """
@@ -19,7 +19,7 @@ import shlex
 import subprocess
 import sys
 
-from ConfigParser import SafeConfigParser
+from configparser import ConfigParser
 from email.message import Message
 from email.utils import formatdate
 
@@ -36,7 +36,7 @@ class Emailer:
         self.load_config_from(path)
 
     def load_config_from(self, filepath):
-        parser = SafeConfigParser()
+        parser = ConfigParser()
         parser.read(filepath)
         self.myself = parser.get("mailback", "myself")
         self.sendmail = parser.get("mailback", "sendmail")
@@ -56,7 +56,7 @@ class Emailer:
         args = shlex.split(self.sendmail)
         args.append(self.myself)
         sendmail = subprocess.Popen(args, stdin=subprocess.PIPE)
-        sendmail.communicate(email.as_string())
+        sendmail.communicate(email.as_string().encode())
 
     def main(self):
         body = sys.stdin.read()

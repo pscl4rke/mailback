@@ -10,7 +10,7 @@ Homepage: https://github.com/pscl4rke/mailback
 
 Package: mailback
 Architecture: all
-Depends: ${misc:Depends}, python2.7
+Depends: ${misc:Depends}, python3
 Description: Takes textual reports and emails them to the sysadmins
  Mailback is ideal for cronjobs and other automated tasks.  It reads
  report text from stdin and formats it into an email.  This is sent
