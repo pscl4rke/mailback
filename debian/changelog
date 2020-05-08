@@ -1,10 +1,11 @@
-mailback (1.0.3) UNRELEASED; urgency=medium
+mailback (2.0.0) unstable; urgency=medium
 
   * Avoid blank subject lines and bodies.
   * Add a basic test suite.
   * Switch from Python 2 to Python 3.
+  * Increment major version due to new deps.
 
- -- P. S. Clarke <debs@pscl4rke.net>  Fri, 08 May 2020 12:37:40 +0100
+ -- P. S. Clarke <debs@pscl4rke.net>  Fri, 08 May 2020 15:13:08 +0100
 
 mailback (1.0.2) unstable; urgency=medium
 
